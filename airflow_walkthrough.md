@@ -2,7 +2,9 @@ installing airflow in a production environment (ubuntu) - a complete walkthrough
 =======
 
 author: Xia Wang
+
 affiliation: Argo labs
+
 date: 2017-04-21
 
 ## Introduction ##
@@ -94,7 +96,8 @@ to set up the first-time configs.
 An `airflow.cfg` file is generated in the airflow home directory. We should open it with a text editor, and change some configurations in the [core] section:
 
  - for the executor, we should use CeleryExecutor instead of SequentialExecutor if we want to run the pipeline in the webUI:
- - 
+
+`execcutor = CeleryExcecutor`
 
  - for the backend DB connection, we should pass along the connection info of the postgresql database `airflow` we just created:
 
