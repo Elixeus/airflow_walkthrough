@@ -147,10 +147,13 @@ Otherwise, there will be a confusing error message when you call the `airflow wo
 Now airflow and the webUI is ready to flow. Let's see how to put dags (directed acyclic graphs: task workflow) in it and run them. We need to create a `dags` file in the airflow home directory:
 `mkdir dags`. Write [some test dags](https://airflow.incubator.apache.org/tutorial.html#example-pipeline-definition) and put them in the `dags` directory. Reload the dags:
 
-`airflow initdb`
-`airflow webserver`
-`airflow scheduler`
-`airflow worker`
+`airflow initdb
+
+airflow webserver
+
+airflow scheduler
+
+airflow worker`
 
 For the airflow webUI to work, we need to start a webserver and click the run button for a dag. Under the hood, the run button will trigger the `scheduler` to distribute the dag in a task queue (rabbitmq) and assign `workers` to carry out the task. So we need to have all the three airflow components (`webserver`, `scheduler` and `worker`) running. Since we installed the `scheduler` and the `worker` on the same EC2 instance, we had memory limitations and were not able to run all three components at once, we opened up the `airflow webserver` and `airflow scheduler` first, clicked the run button for the test dag, closed the `airflow webserver` and opened the `airflow worker`. The scheduler assigned the tasks in the queue to the workers, and the workers carried out the tasks. The scheduler and the workers recorded their activities in their respective logs in the airflow home directory. After the workers finished the task, we terminated the workers, and reopened the webserver. And the test dag in the webUI became marked successful.
 
