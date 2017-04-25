@@ -103,10 +103,11 @@ An `airflow.cfg` file is generated in the airflow home directory. We should open
 If you don't want the example dags to show up in the webUI, you can set the `load_examples` variable to `False`.
 Save and quit.
 
-And to prepare for the next steps, we also need to set up the `broker\_url` and `celery\_result\_backend` in the [celery] section:
+And to prepare for the next steps, we also need to set up the `broker_url` and `celery_result_backend` in the [celery] section:
 
-`broker\_url = amqp://guest:guest@localhost:5672//`
-`celery\_result\_backend = amqp://guest:guest@localhost:5672//` (can use the same one as `broker_url`)
+`broker_url = amqp://guest:guest@localhost:5672//`
+
+`celery_result_backend = amqp://guest:guest@localhost:5672//` (can use the same one as `broker_url`)
 
 For the configuration file to be loaded, we need to reset the database: 
 
@@ -126,7 +127,7 @@ Rabbitmq is the core component supporting airflow on distributed computing syste
 
 And change the configuration file `/etc/rabbitmq/rabbitmq-env.conf`:
 
-`NODE\_IP_ADDRESS=0.0.0.0`
+`NODE_IP_ADDRESS=0.0.0.0`
 
 And start a rabbitmq service:
 
