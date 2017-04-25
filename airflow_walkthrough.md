@@ -97,7 +97,7 @@ An `airflow.cfg` file is generated in the airflow home directory. We should open
 
  - for the executor, we should use CeleryExecutor instead of SequentialExecutor if we want to run the pipeline in the webUI:
 
-`executor = CeleryExcecutor`
+`executor = CeleryExecutor`
 
  - for the backend DB connection, we should pass along the connection info of the postgresql database `airflow` we just created:
 
