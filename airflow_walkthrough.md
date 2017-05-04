@@ -41,11 +41,12 @@ Now that we've installed the postgresql database, we need to create a database f
 Then we will receive a psql prompt that looks like `postgres=#`.
 We can type in sql queries to add a new user (ubuntu in our case), and grant it privileges to the database. 
 
-	`CREATE ROLE ubuntu;
-	 GRANT ALL PRIVILEGES on database airflow to ubuntu;
-	 ALTER ROLE ubuntu SUPERUSER;
-	 ALTER ROLE ubuntu CREATEDB;
-	 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO ubuntu;`
+	CREATE DATABASE airflow;
+	CREATE ROLE ubuntu;
+	GRANT ALL PRIVILEGES on database airflow to ubuntu;
+	ALTER ROLE ubuntu SUPERUSER;
+	ALTER ROLE ubuntu CREATEDB;
+	GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO ubuntu;
 	 
 
 `psql -d airflow`
