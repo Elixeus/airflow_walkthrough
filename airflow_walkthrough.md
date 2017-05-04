@@ -74,6 +74,10 @@ To install airflow and its packages is simply calling:
 `sudo pip install airflow[foo,bar]`
 
  where foo, bar are package names separated by comma. Airflow also provide an option `all` to install all dependencies. We only chose to install the packages we thought useful (async, devel, celery, crypto, druid, gcp_api, jbdc, hdfs, hive, kerberos, ldap, password, postgres, qds, rabbitmq, s3, samba, slack), and ran into a few dependency issues. To be specific:
+ 
+ - for [mysql] package, we need to install `libmysqlclient-dev`:
+ 
+`sudo apt-get install libmysqlclient-dev`
 
  - for the [cryptograph] package, we need to install `libssl-dev`: 
 
